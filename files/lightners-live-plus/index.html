@@ -10,12 +10,8 @@ html,body{margin:0;padding:0;border:0;width:100%;height:100%}body{background:#00
 <script>
 // Threaded Godot build needs crossOriginIsolated (SharedArrayBuffer).
 // Install the COOP/COEP worker and reload once so it controls the page.
-if (typeof crossOriginIsolated !== "undefined" && !crossOriginIsolated && !sessionStorage.getItem("llplus-coi-reloaded")) {
-  sessionStorage.setItem("llplus-coi-reloaded", "1");
-  navigator.serviceWorker.register("coi-serviceworker.js").then(function () { location.reload(); }, function () { location.reload(); });
-} else {
-  sessionStorage.removeItem("llplus-coi-reloaded");
-}
+sessionStorage.setItem("llplus-coi-reloaded", "1");
+navigator.serviceWorker.register("coi-serviceworker.js").then(function () { location.reload(); }, function () { location.reload(); });
 </script>
 <script src="../runner-coi.js"></script>
 <script src="coi-serviceworker.js"></script>
